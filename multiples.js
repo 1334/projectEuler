@@ -16,22 +16,18 @@ function multiples (a,b,n) {
 //console.log(multiples(3,5,1000));
 
 function fibonacciEven (max) {
-  let minusOne = 1;
-  let temp = 0;
+  let prevTerm = 1;
   let term = 2;
   let sum = 0;
 
   while (term < max) {
     if (term % 2 === 0) sum += term;
-    temp = term;
-    term += minusOne;
-    minusOne = temp;
-    console.log('term: ',term,' minus: ',minusOne, ' sum: ',sum);
+    [prevTerm, term] = [term, term + prevTerm]
   }
   return sum;
 }
 
-//console.log(fibonacciEven(4000000));
+// console.log(fibonacciEven(4000000), 4613732, fibonacciEven(4000000) === 4613732);
 
 function largestPrime (num) {
   let max = 0;
@@ -76,8 +72,8 @@ function largestPalin (a) {
   }
   return max;
 }
-console.log(largestPalin(999));
-console.log(isPalin(909));
-console.log(isPalin(1001));
-console.log(isPalin(9090));
+// console.log(largestPalin(999));
+// console.log(isPalin(909));
+// console.log(isPalin(1001));
+// console.log(isPalin(9090));
 module.exports = multiples;
